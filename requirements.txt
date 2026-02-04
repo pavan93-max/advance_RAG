@@ -1,0 +1,23 @@
+# Core dependencies
+streamlit>=1.28.0
+pymupdf>=1.23.0  # PyMuPDF for PDF parsing
+pdfplumber>=0.10.0
+pillow>=10.0.0
+pandas>=2.0.0
+
+# Vector database
+chromadb>=0.4.15
+sentence-transformers>=2.2.2
+
+# Image processing
+pytesseract>=0.3.10  # OCR (requires Tesseract binary)
+torch>=2.0.0
+transformers>=4.30.0
+
+# LLM
+openai>=1.0.0  # For OpenAI API integration
+
+# Utilities
+numpy>=1.24.0
+python-dotenv>=1.0.0  # For .env file support
+
