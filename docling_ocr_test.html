@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Docling OCR Test Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .result-section {
+            background: white;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .image-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .ocr-text {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+        .metadata {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            border-left: 4px solid #2196F3;
+        }
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .metadata-item {
+            background: white;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .metadata-label {
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+        }
+        .metadata-value {
+            color: #333;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Docling OCR Test Results</h1>
+    <p><strong>PDF:</strong> 2406.09009v4.pdf</p>
+    <p><strong>Total Images Tested:</strong> 5</p>
+
+    <div class="result-section">
+        <h2>Image p2_img0 (Page 2)</h2>
+        
+        <div class="metadata">
+            <h3 style="margin-top: 0;">📊 Image Metadata</h3>
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <div class="metadata-label">Format</div>
+                    <div class="metadata-value">PNG</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Color Mode</div>
+                    <div class="metadata-value">RGB</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Dimensions</div>
+                    <div class="metadata-value">687 × 374 px</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Aspect Ratio</div>
+                    <div class="metadata-value">1.84</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">File Size</div>
+                    <div class="metadata-value">43.22 KB (44,255 bytes)</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Transparency</div>
+                    <div class="metadata-value">No</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">OCR Text Length</div>
+                    <div class="metadata-value">0 characters</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">OCR Words</div>
+                    <div class="metadata-value">0 words</div>
+                </div></div>
+        </div>
+        
+        <div class="metadata" style="background: #fff3cd; border-left-color: #ffc107;"><h3 style="margin-top: 0;">📚 Stored Metadata (from Vector Store)</h3><div style="margin: 10px 0;"><strong>VLM Caption:</strong><br><em>Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components.</em></div><div style="margin: 10px 0;"><strong>Surrounding Context:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px;">KDD ’24, August 25–29, 2024, Barcelona, Spain
+Xihao Piao*, Zheng Chen*, Taichi Murayama, Yasuko Matsubara, and Yasushi Sakurai
+
+
+(b) PatchTST
+(c) Ours
+(a) FEDformer
+
+F
+F
+
+F
+
+Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accuratel...</div></div><div style="margin: 10px 0;"><strong>Related Text Chunks (3):</strong>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 1 (p2_chunk0)</strong> [𝐿]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">KDD ’24, August 25–29, 2024, Barcelona, Spain
+Xihao Piao*, Zheng Chen*, Taichi Murayama, Yasuko Matsubara, and Yasushi Sakurai
+(b) PatchTST
+(c) Ours
+(a) FEDformer
+F
+F
+A
+F</div>
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 2 (p2_chunk3)</strong> [𝐿]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">Forecasting
+Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components. e...</div>
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 3 (p2_chunk4)</strong> [𝐿]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">This
+may raise the possibility of frequency bias in time series forecasting,
+as the model might disproportionately learn from these dominant
+low-frequency components. This work explores one direction ...</div>
+                    </div></div><div style="margin: 10px 0;"><strong>Combined Related Text:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px; max-height: 200px; overflow-y: auto;">[𝐿]
+KDD ’24, August 25–29, 2024, Barcelona, Spain
+Xihao Piao*, Zheng Chen*, Taichi Murayama, Yasuko Matsubara, and Yasushi Sakurai
+(b) PatchTST
+(c) Ours
+(a) FEDformer
+F
+F
+A
+F
+
+[𝐿]
+Forecasting
+Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components. expense of high-frequency features [14, 30, 35, 36]. This subtle issue
+may also appear in time series forecasting, potent...</div></div><div style="margin: 10px 0;"><strong>Related Chunk IDs:</strong> p2_chunk0, p2_chunk3, p2_chunk4</div></div>
+        
+        <div class="image-container">
+            <img src="docling_test_images\p2_img0.png" alt="Image p2_img0">
+        </div>
+        
+        <div class="ocr-text">
+            <strong>Extracted Text (Docling OCR):</strong><br>
+            (No text extracted)
+        </div>
+    </div>
+
+    <div class="result-section">
+        <h2>Image p2_img1 (Page 2)</h2>
+        
+        <div class="metadata">
+            <h3 style="margin-top: 0;">📊 Image Metadata</h3>
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <div class="metadata-label">Format</div>
+                    <div class="metadata-value">PNG</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Color Mode</div>
+                    <div class="metadata-value">RGB</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Dimensions</div>
+                    <div class="metadata-value">464 × 235 px</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Aspect Ratio</div>
+                    <div class="metadata-value">1.97</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">File Size</div>
+                    <div class="metadata-value">30.56 KB (31,298 bytes)</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Transparency</div>
+                    <div class="metadata-value">No</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">OCR Text Length</div>
+                    <div class="metadata-value">0 characters</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">OCR Words</div>
+                    <div class="metadata-value">0 words</div>
+                </div></div>
+        </div>
+        
+        <div class="metadata" style="background: #fff3cd; border-left-color: #ffc107;"><h3 style="margin-top: 0;">📚 Stored Metadata (from Vector Store)</h3><div style="margin: 10px 0;"><strong>VLM Caption:</strong><br><em>Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components.</em></div><div style="margin: 10px 0;"><strong>Surrounding Context:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px;">(b) PatchTST
+(c) Ours
+(a) FEDformer
+
+F
+F
+
+F
+
+Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components.
+
+expense of high-frequency features [14, 30, 35, 36]. This subtle is...</div></div><div style="margin: 10px 0;"><strong>Related Text Chunks (3):</strong>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 1 (p2_chunk0)</strong> [𝐿]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">KDD ’24, August 25–29, 2024, Barcelona, Spain
+Xihao Piao*, Zheng Chen*, Taichi Murayama, Yasuko Matsubara, and Yasushi Sakurai
+(b) PatchTST
+(c) Ours
+(a) FEDformer
+F
+F
+A
+F</div>
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 2 (p2_chunk3)</strong> [𝐿]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">Forecasting
+Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components. e...</div>
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 3 (p2_chunk4)</strong> [𝐿]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">This
+may raise the possibility of frequency bias in time series forecasting,
+as the model might disproportionately learn from these dominant
+low-frequency components. This work explores one direction ...</div>
+                    </div></div><div style="margin: 10px 0;"><strong>Combined Related Text:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px; max-height: 200px; overflow-y: auto;">[𝐿]
+KDD ’24, August 25–29, 2024, Barcelona, Spain
+Xihao Piao*, Zheng Chen*, Taichi Murayama, Yasuko Matsubara, and Yasushi Sakurai
+(b) PatchTST
+(c) Ours
+(a) FEDformer
+F
+F
+A
+F
+
+[𝐿]
+Forecasting
+Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components. expense of high-frequency features [14, 30, 35, 36]. This subtle issue
+may also appear in time series forecasting, potent...</div></div><div style="margin: 10px 0;"><strong>Related Chunk IDs:</strong> p2_chunk0, p2_chunk3, p2_chunk4</div></div>
+        
+        <div class="image-container">
+            <img src="docling_test_images\p2_img1.png" alt="Image p2_img1">
+        </div>
+        
+        <div class="ocr-text">
+            <strong>Extracted Text (Docling OCR):</strong><br>
+            (No text extracted)
+        </div>
+    </div>
+
+    <div class="result-section">
+        <h2>Image p2_img2 (Page 2)</h2>
+        
+        <div class="metadata">
+            <h3 style="margin-top: 0;">📊 Image Metadata</h3>
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <div class="metadata-label">Format</div>
+                    <div class="metadata-value">PNG</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Color Mode</div>
+                    <div class="metadata-value">RGB</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Dimensions</div>
+                    <div class="metadata-value">720 × 374 px</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Aspect Ratio</div>
+                    <div class="metadata-value">1.93</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">File Size</div>
+                    <div class="metadata-value">46.53 KB (47,647 bytes)</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Transparency</div>
+                    <div class="metadata-value">No</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">OCR Text Length</div>
+                    <div class="metadata-value">0 characters</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">OCR Words</div>
+                    <div class="metadata-value">0 words</div>
+                </div></div>
+        </div>
+        
+        <div class="metadata" style="background: #fff3cd; border-left-color: #ffc107;"><h3 style="margin-top: 0;">📚 Stored Metadata (from Vector Store)</h3><div style="margin: 10px 0;"><strong>VLM Caption:</strong><br><em>Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components.</em></div><div style="margin: 10px 0;"><strong>Surrounding Context:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px;">KDD ’24, August 25–29, 2024, Barcelona, Spain
+Xihao Piao*, Zheng Chen*, Taichi Murayama, Yasuko Matsubara, and Yasushi Sakurai
+
+
+(b) PatchTST
+(c) Ours
+(a) FEDformer
+
+F
+F
+
+F
+
+Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accuratel...</div></div><div style="margin: 10px 0;"><strong>Related Text Chunks (3):</strong>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 1 (p2_chunk0)</strong> [𝐿]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">KDD ’24, August 25–29, 2024, Barcelona, Spain
+Xihao Piao*, Zheng Chen*, Taichi Murayama, Yasuko Matsubara, and Yasushi Sakurai
+(b) PatchTST
+(c) Ours
+(a) FEDformer
+F
+F
+A
+F</div>
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 2 (p2_chunk3)</strong> [𝐿]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">Forecasting
+Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components. e...</div>
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 3 (p2_chunk4)</strong> [𝐿]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">This
+may raise the possibility of frequency bias in time series forecasting,
+as the model might disproportionately learn from these dominant
+low-frequency components. This work explores one direction ...</div>
+                    </div></div><div style="margin: 10px 0;"><strong>Combined Related Text:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px; max-height: 200px; overflow-y: auto;">[𝐿]
+KDD ’24, August 25–29, 2024, Barcelona, Spain
+Xihao Piao*, Zheng Chen*, Taichi Murayama, Yasuko Matsubara, and Yasushi Sakurai
+(b) PatchTST
+(c) Ours
+(a) FEDformer
+F
+F
+A
+F
+
+[𝐿]
+Forecasting
+Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components. expense of high-frequency features [14, 30, 35, 36]. This subtle issue
+may also appear in time series forecasting, potent...</div></div><div style="margin: 10px 0;"><strong>Related Chunk IDs:</strong> p2_chunk0, p2_chunk3, p2_chunk4</div></div>
+        
+        <div class="image-container">
+            <img src="docling_test_images\p2_img2.png" alt="Image p2_img2">
+        </div>
+        
+        <div class="ocr-text">
+            <strong>Extracted Text (Docling OCR):</strong><br>
+            (No text extracted)
+        </div>
+    </div>
+
+    <div class="result-section">
+        <h2>Image p2_img3 (Page 2)</h2>
+        
+        <div class="metadata">
+            <h3 style="margin-top: 0;">📊 Image Metadata</h3>
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <div class="metadata-label">Format</div>
+                    <div class="metadata-value">PNG</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Color Mode</div>
+                    <div class="metadata-value">RGB</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Dimensions</div>
+                    <div class="metadata-value">464 × 235 px</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Aspect Ratio</div>
+                    <div class="metadata-value">1.97</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">File Size</div>
+                    <div class="metadata-value">31.14 KB (31,887 bytes)</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Transparency</div>
+                    <div class="metadata-value">No</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">OCR Text Length</div>
+                    <div class="metadata-value">0 characters</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">OCR Words</div>
+                    <div class="metadata-value">0 words</div>
+                </div></div>
+        </div>
+        
+        <div class="metadata" style="background: #fff3cd; border-left-color: #ffc107;"><h3 style="margin-top: 0;">📚 Stored Metadata (from Vector Store)</h3><div style="margin: 10px 0;"><strong>VLM Caption:</strong><br><em>Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components.</em></div><div style="margin: 10px 0;"><strong>Surrounding Context:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px;">(b) PatchTST
+(c) Ours
+(a) FEDformer
+
+F
+F
+
+F
+
+Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components.
+
+expense of high-frequency features [14, 30, 35, 36]. This subtle is...</div></div><div style="margin: 10px 0;"><strong>Related Text Chunks (3):</strong>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 1 (p2_chunk0)</strong> [𝐿]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">KDD ’24, August 25–29, 2024, Barcelona, Spain
+Xihao Piao*, Zheng Chen*, Taichi Murayama, Yasuko Matsubara, and Yasushi Sakurai
+(b) PatchTST
+(c) Ours
+(a) FEDformer
+F
+F
+A
+F</div>
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 2 (p2_chunk3)</strong> [𝐿]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">Forecasting
+Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components. e...</div>
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 3 (p2_chunk4)</strong> [𝐿]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">This
+may raise the possibility of frequency bias in time series forecasting,
+as the model might disproportionately learn from these dominant
+low-frequency components. This work explores one direction ...</div>
+                    </div></div><div style="margin: 10px 0;"><strong>Combined Related Text:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px; max-height: 200px; overflow-y: auto;">[𝐿]
+KDD ’24, August 25–29, 2024, Barcelona, Spain
+Xihao Piao*, Zheng Chen*, Taichi Murayama, Yasuko Matsubara, and Yasushi Sakurai
+(b) PatchTST
+(c) Ours
+(a) FEDformer
+F
+F
+A
+F
+
+[𝐿]
+Forecasting
+Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components. expense of high-frequency features [14, 30, 35, 36]. This subtle issue
+may also appear in time series forecasting, potent...</div></div><div style="margin: 10px 0;"><strong>Related Chunk IDs:</strong> p2_chunk0, p2_chunk3, p2_chunk4</div></div>
+        
+        <div class="image-container">
+            <img src="docling_test_images\p2_img3.png" alt="Image p2_img3">
+        </div>
+        
+        <div class="ocr-text">
+            <strong>Extracted Text (Docling OCR):</strong><br>
+            (No text extracted)
+        </div>
+    </div>
+
+    <div class="result-section">
+        <h2>Image p2_img4 (Page 2)</h2>
+        
+        <div class="metadata">
+            <h3 style="margin-top: 0;">📊 Image Metadata</h3>
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <div class="metadata-label">Format</div>
+                    <div class="metadata-value">PNG</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Color Mode</div>
+                    <div class="metadata-value">RGB</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Dimensions</div>
+                    <div class="metadata-value">687 × 374 px</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Aspect Ratio</div>
+                    <div class="metadata-value">1.84</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">File Size</div>
+                    <div class="metadata-value">44.53 KB (45,602 bytes)</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Transparency</div>
+                    <div class="metadata-value">No</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">OCR Text Length</div>
+                    <div class="metadata-value">0 characters</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">OCR Words</div>
+                    <div class="metadata-value">0 words</div>
+                </div></div>
+        </div>
+        
+        <div class="metadata" style="background: #fff3cd; border-left-color: #ffc107;"><h3 style="margin-top: 0;">📚 Stored Metadata (from Vector Store)</h3><div style="margin: 10px 0;"><strong>VLM Caption:</strong><br><em>Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components.</em></div><div style="margin: 10px 0;"><strong>Surrounding Context:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px;">KDD ’24, August 25–29, 2024, Barcelona, Spain
+Xihao Piao*, Zheng Chen*, Taichi Murayama, Yasuko Matsubara, and Yasushi Sakurai
+
+
+(b) PatchTST
+(c) Ours
+(a) FEDformer
+
+F
+F
+
+F
+
+Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accuratel...</div></div><div style="margin: 10px 0;"><strong>Related Text Chunks (3):</strong>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 1 (p2_chunk0)</strong> [𝐿]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">KDD ’24, August 25–29, 2024, Barcelona, Spain
+Xihao Piao*, Zheng Chen*, Taichi Murayama, Yasuko Matsubara, and Yasushi Sakurai
+(b) PatchTST
+(c) Ours
+(a) FEDformer
+F
+F
+A
+F</div>
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 2 (p2_chunk3)</strong> [𝐿]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">Forecasting
+Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components. e...</div>
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 3 (p2_chunk4)</strong> [𝐿]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">This
+may raise the possibility of frequency bias in time series forecasting,
+as the model might disproportionately learn from these dominant
+low-frequency components. This work explores one direction ...</div>
+                    </div></div><div style="margin: 10px 0;"><strong>Combined Related Text:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px; max-height: 200px; overflow-y: auto;">[𝐿]
+KDD ’24, August 25–29, 2024, Barcelona, Spain
+Xihao Piao*, Zheng Chen*, Taichi Murayama, Yasuko Matsubara, and Yasushi Sakurai
+(b) PatchTST
+(c) Ours
+(a) FEDformer
+F
+F
+A
+F
+
+[𝐿]
+Forecasting
+Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29], our model can
+accurately capture more significant mid-to-high frequency components. expense of high-frequency features [14, 30, 35, 36]. This subtle issue
+may also appear in time series forecasting, potent...</div></div><div style="margin: 10px 0;"><strong>Related Chunk IDs:</strong> p2_chunk0, p2_chunk3, p2_chunk4</div></div>
+        
+        <div class="image-container">
+            <img src="docling_test_images\p2_img4.png" alt="Image p2_img4">
+        </div>
+        
+        <div class="ocr-text">
+            <strong>Extracted Text (Docling OCR):</strong><br>
+            (No text extracted)
+        </div>
+    </div>
+
+</body>
+</html>

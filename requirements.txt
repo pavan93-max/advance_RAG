@@ -8,9 +8,12 @@ pandas>=2.0.0
 # Vector database
 chromadb>=0.4.15
 sentence-transformers>=2.2.2
+rank-bm25>=0.2.2  # True BM25 implementation for hybrid search
 
 # Image processing
 pytesseract>=0.3.10  # OCR (requires Tesseract binary)
+docling>=1.0.0  # IBM Docling for better OCR (alternative to Tesseract)
+reportlab>=4.0.0  # For PDF creation in Docling OCR test
 torch>=2.0.0
 transformers>=4.30.0
 
@@ -21,3 +24,8 @@ openai>=1.0.0  # For OpenAI API integration
 numpy>=1.24.0
 python-dotenv>=1.0.0  # For .env file support
 
+# Testing (optional, for development)
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+tabulate>=0.9.0

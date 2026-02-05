@@ -111,8 +111,8 @@ class PDFParser:
     
     def extract_tables(self) -> List[Dict]:
         """
-        Extract tables from PDF and convert to markdown.
-        Returns list of dicts with: table_markdown, page, table_id
+        Extract tables from PDF with structure preservation.
+        Returns list of dicts with: table_data, table_markdown, page, table_id
         """
         tables = []
         
@@ -122,17 +122,55 @@ class PDFParser:
             for table_idx, table in enumerate(page_tables):
                 if table:
                     try:
-                        # Convert to DataFrame then to markdown
-                        df = pd.DataFrame(table[1:], columns=table[0] if table else None)
-                        table_markdown = df.to_markdown(index=False)
+                        # Preserve table structure
+                        headers = table[0] if table and len(table) > 0 else []
+                        rows = table[1:] if len(table) > 1 else []
+                        
+                        # Convert to DataFrame for formatting
+                        try:
+                            df = pd.DataFrame(rows, columns=headers if headers else None)
+                            
+                            # Create structured table data
+                            table_data = {
+                                'headers': headers,
+                                'rows': rows,
+                                'markdown': df.to_markdown(index=False) if not df.empty else "",
+                                'num_rows': len(rows),
+                                'num_cols': len(headers) if headers else 0
+                            }
+                            
+                            # Try to create HTML and CSV representations
+                            try:
+                                table_data['html'] = df.to_html(index=False) if not df.empty else ""
+                            except Exception:
+                                table_data['html'] = ""
+                            
+                            try:
+                                table_data['csv'] = df.to_csv(index=False) if not df.empty else ""
+                            except Exception:
+                                table_data['csv'] = ""
+                        except Exception as df_error:
+                            # Fallback: use raw table data
+                            table_data = {
+                                'headers': headers,
+                                'rows': rows,
+                                'markdown': str(table),
+                                'num_rows': len(rows),
+                                'num_cols': len(headers) if headers else 0,
+                                'html': "",
+                                'csv': ""
+                            }
                         
                         table_id = f"p{page_num+1}_table{table_idx}"
                         
                         tables.append({
-                            'table_markdown': table_markdown,
+                            'table_data': table_data,
+                            'table_markdown': table_data.get('markdown', str(table)),
                             'page': page_num + 1,
                             'table_id': table_id,
-                            'raw_table': table
+                            'raw_table': table,
+                            'num_rows': table_data['num_rows'],
+                            'num_cols': table_data['num_cols']
                         })
                     except Exception as e:
                         print(f"Error processing table {table_idx} from page {page_num+1}: {e}")
@@ -201,9 +239,22 @@ class PDFParser:
         return None
     
     def _split_into_paragraphs(self, text: str) -> List[str]:
-        """Split text into paragraphs."""
-        # Split by double newlines or single newline if line is short
-        paragraphs = re.split(r'\n\s*\n', text)
+        """
+        Split text into paragraphs with layout awareness.
+        Improved paragraph splitting that respects document structure.
+        """
+        # First, try to split by section markers (capitalized lines)
+        # This helps preserve document structure
+        sections = re.split(r'\n(?=[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s*\n)', text)
+        
+        paragraphs = []
+        for section in sections:
+            # Split by double newlines (paragraph breaks)
+            paras = re.split(r'\n\s*\n', section)
+            for para in paras:
+                para = para.strip()
+                if para:
+                    paragraphs.append(para)
         
         # Further split long paragraphs
         result = []

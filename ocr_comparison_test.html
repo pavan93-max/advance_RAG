@@ -1,0 +1,715 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>OCR Comparison Test Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .result-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .image-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .ocr-text {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+        .ocr-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .ocr-box {
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+        }
+        .ocr-box.docling {
+            border-color: #2196F3;
+            background: #e3f2fd;
+        }
+        .ocr-box.tesseract {
+            border-color: #4CAF50;
+            background: #e8f5e9;
+        }
+        .metadata {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            border-left: 4px solid #2196F3;
+        }
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .metadata-item {
+            background: white;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .metadata-label {
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+        }
+        .metadata-value {
+            color: #333;
+            font-size: 1em;
+        }
+        .stored-metadata {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        .similarity-matrix {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .similarity-matrix table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        .similarity-matrix th, .similarity-matrix td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .similarity-matrix th {
+            background: #f0f0f0;
+            font-weight: bold;
+        }
+        .similarity-matrix td {
+            font-family: monospace;
+        }
+        .similarity-high {
+            background: #c8e6c9;
+        }
+        .similarity-medium {
+            background: #fff9c4;
+        }
+        .similarity-low {
+            background: #ffcdd2;
+        }
+        .search-results {
+            margin: 15px 0;
+        }
+        .search-query {
+            background: #e1f5fe;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            border-left: 4px solid #0288d1;
+        }
+        .search-result-item {
+            background: white;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border-left: 3px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <h1>OCR Comparison Test Results</h1>
+    <p><strong>PDF:</strong> 1706.03762v7.pdf</p>
+    <p><strong>Total Images Tested:</strong> 3</p>
+    <p><strong>Engines:</strong> Docling (✓), Tesseract (✓)</p>
+
+    <div class="result-section">
+        <h2>🔍 Image Similarity Matrix (CLIP Embeddings)</h2>
+        <p style="color: #666; font-size: 0.9em;">Cosine similarity between images based on CLIP embeddings. Higher values indicate more similar images.</p>
+        <div class="similarity-matrix">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th><th>p3_img0</th><th>p4_img0</th><th>p4_img1</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>p3_img0</th><td class="similarity-high">1.000</td><td class="similarity-medium">0.775</td><td class="similarity-medium">0.789</td>
+                    </tr>
+                    <tr>
+                        <th>p4_img0</th><td class="similarity-medium">0.775</td><td class="similarity-high">1.000</td><td class="similarity-high">0.852</td>
+                    </tr>
+                    <tr>
+                        <th>p4_img1</th><td class="similarity-medium">0.789</td><td class="similarity-high">0.852</td><td class="similarity-high">1.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="result-section">
+        <h2>🔎 Search Query Test Results</h2>
+        <p style="color: #666; font-size: 0.9em;">Testing how well different queries match the images using CLIP similarity.</p>
+
+        <div class="search-query">
+            <h3 style="margin-top: 0;">Query: "frequency modeling"</h3>
+            <div class="search-result-item">
+                <strong>p3_img2</strong> (Score: 0.283)<br>
+                <span style="font-size: 0.9em; color: #666;">a graph graph with a line graph and a line graph</span>
+            </div>
+            <div class="search-result-item">
+                <strong>p8_img7</strong> (Score: 0.283)<br>
+                <span style="font-size: 0.9em; color: #666;">a graph with a line graph and a line graph</span>
+            </div>
+            <div class="search-result-item">
+                <strong>p3_img3</strong> (Score: 0.283)<br>
+                <span style="font-size: 0.9em; color: #666;">a graph graph with a line graph and a line graph</span>
+            </div>
+        </div>
+        <div class="search-query">
+            <h3 style="margin-top: 0;">Query: "FEDformer"</h3>
+            <div class="search-result-item">
+                <strong>p16_img0</strong> (Score: 0.251)<br>
+                <span style="font-size: 0.9em; color: #666;">a red and blue color scheme</span>
+            </div>
+            <div class="search-result-item">
+                <strong>p3_img7</strong> (Score: 0.239)<br>
+                <span style="font-size: 0.9em; color: #666;">a black and white image of a square</span>
+            </div>
+            <div class="search-result-item">
+                <strong>p3_img6</strong> (Score: 0.239)<br>
+                <span style="font-size: 0.9em; color: #666;">a black and white image of a tall tower</span>
+            </div>
+        </div>
+        <div class="search-query">
+            <h3 style="margin-top: 0;">Query: "PatchTST"</h3>
+            <div class="search-result-item">
+                <strong>p16_img5</strong> (Score: 0.225)<br>
+                <span style="font-size: 0.9em; color: #666;">a blue and red square with a white stripe</span>
+            </div>
+            <div class="search-result-item">
+                <strong>p8_img1</strong> (Score: 0.223)<br>
+                <span style="font-size: 0.9em; color: #666;">a black and white square with a white line</span>
+            </div>
+            <div class="search-result-item">
+                <strong>p16_img3</strong> (Score: 0.220)<br>
+                <span style="font-size: 0.9em; color: #666;">a blue and red striped background</span>
+            </div>
+        </div>
+        <div class="search-query">
+            <h3 style="margin-top: 0;">Query: "time series forecasting"</h3>
+            <div class="search-result-item">
+                <strong>p15_img3</strong> (Score: 0.304)<br>
+                <span style="font-size: 0.9em; color: #666;">a wave is shown in the form of a wave</span>
+            </div>
+            <div class="search-result-item">
+                <strong>p2_img5</strong> (Score: 0.303)<br>
+                <span style="font-size: 0.9em; color: #666;">Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29...</span>
+            </div>
+            <div class="search-result-item">
+                <strong>p2_img1</strong> (Score: 0.302)<br>
+                <span style="font-size: 0.9em; color: #666;">Figure 1: In contrast to a frequency modeling-based work FEDformer [50] and a SOTA work PatchTST [29...</span>
+            </div>
+        </div>
+        <div class="search-query">
+            <h3 style="margin-top: 0;">Query: "graph comparison"</h3>
+            <div class="search-result-item">
+                <strong>p13_img0</strong> (Score: 0.303)<br>
+                <span style="font-size: 0.9em; color: #666;">a graph with a line graph and a line graph</span>
+            </div>
+            <div class="search-result-item">
+                <strong>p8_img10</strong> (Score: 0.298)<br>
+                <span style="font-size: 0.9em; color: #666;">a square with a red dot on the center</span>
+            </div>
+            <div class="search-result-item">
+                <strong>p8_img9</strong> (Score: 0.290)<br>
+                <span style="font-size: 0.9em; color: #666;">a square with a star on the top</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="result-section">
+        <h2>Image p3_img0 (Page 3)</h2>
+        
+        <div class="metadata">
+            <h3 style="margin-top: 0;">📊 Image Metadata</h3>
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <div class="metadata-label">Format</div>
+                    <div class="metadata-value">PNG</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Color Mode</div>
+                    <div class="metadata-value">RGB</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Dimensions</div>
+                    <div class="metadata-value">1520 × 2239 px</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Aspect Ratio</div>
+                    <div class="metadata-value">0.68</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">File Size</div>
+                    <div class="metadata-value">124.06 KB (127,037 bytes)</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Transparency</div>
+                    <div class="metadata-value">No</div>
+                </div></div>
+        </div>
+        
+        <div class="metadata stored-metadata"><h3 style="margin-top: 0;">📚 Stored Metadata (from Vector Store)</h3><div style="margin: 10px 0;"><strong>VLM Caption:</strong><br><em>Figure 1: The Transformer - model architecture.</em></div><div style="margin: 10px 0;"><strong>Stored OCR Text:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px;">Output
+Probabilities
+
+Add &amp; Norm
+Feed
+Forward
+Add &amp; Norm
+
+Multi- Head
+Attention
+
+Add &amp; Norm
+
+Add &amp; Norm
+
+Nx | Gada. Norm
+Add &amp; Norm Masked
+Multi- Head Multi-Head
+Attention Attention
+SE a, of
+
+Positional Positional
+
+Encoding @ © © @ Encoding
+Input Output
+
+Embedding Embedding
+
+Inputs Outputs
+(shifted ...</div></div><div style="margin: 10px 0;"><strong>Surrounding Context:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px;">Figure 1: The Transformer - model architecture.
+
+The Transformer follows this overall architecture using stacked self-attention and point-wise, fully
+connected layers for both the encoder and decoder, shown in the left and right halves of Figure 1,
+respectively.
+
+3.1
+Encoder and Decoder Stacks
+
+Enco...</div></div><div style="margin: 10px 0;"><strong>Related Text Chunks (3):</strong>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 1 (p3_chunk0)</strong> [Attention]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">Figure 1: The Transformer - model architecture. The Transformer follows this overall architecture using stacked self-attention and point-wise, fully
+connected layers for both the encoder and decoder, ...</div>
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 2 (p3_chunk1)</strong> [Attention]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">In addition to the two
+sub-layers in each encoder layer, the decoder inserts a third sub-layer, which performs multi-head
+attention over the output of the encoder stack. Similar to the encoder, we emp...</div>
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 3 (p3_chunk2)</strong> [Attention]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">Attention
+An attention function can be described as mapping a query and a set of key-value pairs to an output,
+where the query, keys, values, and output are all vectors. The output is computed as a we...</div>
+                    </div></div><div style="margin: 10px 0;"><strong>Combined Related Text:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px; max-height: 200px; overflow-y: auto;">[Attention]
+Figure 1: The Transformer - model architecture. The Transformer follows this overall architecture using stacked self-attention and point-wise, fully
+connected layers for both the encoder and decoder, shown in the left and right halves of Figure 1,
+respectively. 3.1
+Encoder and Decoder Stacks
+Encoder:
+The encoder is composed of a stack of N = 6 identical layers. Each layer has two
+sub-layers. The first is a multi-head self-attention mechanism, and the second is a simple, position-
+wis...</div></div><div style="margin: 10px 0;"><strong>Related Chunk IDs:</strong> p3_chunk0, p3_chunk1, p3_chunk2</div></div>
+        
+        <div class="image-container">
+            <div style="position: relative; display: inline-block;">
+                <img src="ocr_comparison_images\p3_img0.png" alt="Image p3_img0" 
+                     title="Image p3_img0 - Page 3 - 1520×2239px">
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 8px; font-size: 0.9em;">
+                    <strong>Image p3_img0</strong> | Page 3 | 1520×2239px | PNG
+                </div>
+            </div>
+            <div style="margin-top: 10px; text-align: center; color: #666; font-size: 0.9em;">
+                <div><strong>Image Properties:</strong> PNG | RGB | 124.06 KB</div>
+                <div style="margin-top: 5px;">
+                    Docling: 0 chars | Tesseract: 306 chars
+                </div>
+            </div>
+        </div>
+        
+        <div class="metadata">
+            <h3 style="margin-top: 0;">📈 OCR Statistics</h3>
+            <div class="metadata-grid">
+            <div class="metadata-item">
+                <div class="metadata-label">Docling OCR Length</div>
+                <div class="metadata-value">0 characters</div>
+            </div>
+            <div class="metadata-item">
+                <div class="metadata-label">Docling OCR Words</div>
+                <div class="metadata-value">0 words</div>
+            </div>
+            <div class="metadata-item">
+                <div class="metadata-label">Tesseract OCR Length</div>
+                <div class="metadata-value">306 characters</div>
+            </div>
+            <div class="metadata-item">
+                <div class="metadata-label">Tesseract OCR Words</div>
+                <div class="metadata-value">51 words</div>
+            </div></div>
+        </div>
+        
+        <div class="ocr-comparison">
+            <div class="ocr-box docling">
+                <h3>🔵 Docling OCR</h3>
+                <div class="ocr-text">
+                    (No text extracted)
+                </div>
+            </div>
+            
+            <div class="ocr-box tesseract">
+                <h3>🟢 Tesseract OCR</h3>
+                <div class="ocr-text">
+                    Output
+Probabilities
+
+Add &amp; Norm
+Feed
+Forward
+Add &amp; Norm
+
+Multi- Head
+Attention
+
+Add &amp; Norm
+
+Add &amp; Norm
+
+Nx | Gada. Norm
+Add &amp; Norm Masked
+Multi- Head Multi-Head
+Attention Attention
+SE a, of
+
+Positional Positional
+
+Encoding @ © © @ Encoding
+Input Output
+
+Embedding Embedding
+
+Inputs Outputs
+(shifted right)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="result-section">
+        <h2>Image p4_img0 (Page 4)</h2>
+        
+        <div class="metadata">
+            <h3 style="margin-top: 0;">📊 Image Metadata</h3>
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <div class="metadata-label">Format</div>
+                    <div class="metadata-value">PNG</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Color Mode</div>
+                    <div class="metadata-value">RGB</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Dimensions</div>
+                    <div class="metadata-value">445 × 884 px</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Aspect Ratio</div>
+                    <div class="metadata-value">0.50</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">File Size</div>
+                    <div class="metadata-value">21.94 KB (22,467 bytes)</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Transparency</div>
+                    <div class="metadata-value">No</div>
+                </div></div>
+        </div>
+        
+        <div class="metadata stored-metadata"><h3 style="margin-top: 0;">📚 Stored Metadata (from Vector Store)</h3><div style="margin: 10px 0;"><strong>VLM Caption:</strong><br><em>Figure 2: (left) Scaled Dot-Product Attention. (right) Multi-Head Attention consists of several
+attention layers running in parallel.</em></div><div style="margin: 10px 0;"><strong>Surrounding Context:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px;">Figure 2: (left) Scaled Dot-Product Attention. (right) Multi-Head Attention consists of several
+attention layers running in parallel.
+
+of the values, where the weight assigned to each value is computed by a compatibility function of the
+query with the corresponding key.
+
+3.2.1
+Scaled Dot-Product Att...</div></div><div style="margin: 10px 0;"><strong>Related Text Chunks (3):</strong>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 1 (p4_chunk0)</strong> [)V]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">Scaled Dot-Product Attention
+Multi-Head Attention
+Figure 2: (left) Scaled Dot-Product Attention. (right) Multi-Head Attention consists of several
+attention layers running in parallel. of the values, w...</div>
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 2 (p4_chunk1)</strong> [)V]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">We compute
+the matrix of outputs as:
+Attention(Q, K, V ) = softmax(QKT
+√dk
+)V
+(1)
+The two most commonly used attention functions are additive attention [2], and dot-product (multi-
+plicative) attentio...</div>
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 3 (p4_chunk2)</strong> [)V]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">To counteract this effect, we scale the dot products by
+1
+√dk . 3.2.2
+Multi-Head Attention
+Instead of performing a single attention function with dmodel-dimensional keys, values and queries,
+we found ...</div>
+                    </div></div><div style="margin: 10px 0;"><strong>Combined Related Text:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px; max-height: 200px; overflow-y: auto;">[)V]
+Scaled Dot-Product Attention
+Multi-Head Attention
+Figure 2: (left) Scaled Dot-Product Attention. (right) Multi-Head Attention consists of several
+attention layers running in parallel. of the values, where the weight assigned to each value is computed by a compatibility function of the
+query with the corresponding key. 3.2.1
+Scaled Dot-Product Attention
+We call our particular attention &quot;Scaled Dot-Product Attention&quot; (Figure 2). The input consists of
+queries and keys of dimension dk, and valu...</div></div><div style="margin: 10px 0;"><strong>Related Chunk IDs:</strong> p4_chunk0, p4_chunk1, p4_chunk2</div></div>
+        
+        <div class="image-container">
+            <div style="position: relative; display: inline-block;">
+                <img src="ocr_comparison_images\p4_img0.png" alt="Image p4_img0" 
+                     title="Image p4_img0 - Page 4 - 445×884px">
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 8px; font-size: 0.9em;">
+                    <strong>Image p4_img0</strong> | Page 4 | 445×884px | PNG
+                </div>
+            </div>
+            <div style="margin-top: 10px; text-align: center; color: #666; font-size: 0.9em;">
+                <div><strong>Image Properties:</strong> PNG | RGB | 21.94 KB</div>
+                <div style="margin-top: 5px;">
+                    Docling: 0 chars | Tesseract: 0 chars
+                </div>
+            </div>
+        </div>
+        
+        <div class="metadata">
+            <h3 style="margin-top: 0;">📈 OCR Statistics</h3>
+            <div class="metadata-grid">
+            <div class="metadata-item">
+                <div class="metadata-label">Docling OCR Length</div>
+                <div class="metadata-value">0 characters</div>
+            </div>
+            <div class="metadata-item">
+                <div class="metadata-label">Docling OCR Words</div>
+                <div class="metadata-value">0 words</div>
+            </div>
+            <div class="metadata-item">
+                <div class="metadata-label">Tesseract OCR Length</div>
+                <div class="metadata-value">0 characters</div>
+            </div>
+            <div class="metadata-item">
+                <div class="metadata-label">Tesseract OCR Words</div>
+                <div class="metadata-value">0 words</div>
+            </div></div>
+        </div>
+        
+        <div class="ocr-comparison">
+            <div class="ocr-box docling">
+                <h3>🔵 Docling OCR</h3>
+                <div class="ocr-text">
+                    (No text extracted)
+                </div>
+            </div>
+            
+            <div class="ocr-box tesseract">
+                <h3>🟢 Tesseract OCR</h3>
+                <div class="ocr-text">
+                    (No text extracted)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="result-section">
+        <h2>Image p4_img1 (Page 4)</h2>
+        
+        <div class="metadata">
+            <h3 style="margin-top: 0;">📊 Image Metadata</h3>
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <div class="metadata-label">Format</div>
+                    <div class="metadata-value">PNG</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Color Mode</div>
+                    <div class="metadata-value">RGB</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Dimensions</div>
+                    <div class="metadata-value">835 × 1282 px</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Aspect Ratio</div>
+                    <div class="metadata-value">0.65</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">File Size</div>
+                    <div class="metadata-value">43.51 KB (44,555 bytes)</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Transparency</div>
+                    <div class="metadata-value">No</div>
+                </div></div>
+        </div>
+        
+        <div class="metadata stored-metadata"><h3 style="margin-top: 0;">📚 Stored Metadata (from Vector Store)</h3><div style="margin: 10px 0;"><strong>VLM Caption:</strong><br><em>Figure 2: (left) Scaled Dot-Product Attention. (right) Multi-Head Attention consists of several
+attention layers running in parallel.</em></div><div style="margin: 10px 0;"><strong>Stored OCR Text:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px;">Linear
+
+YY
+Es 2
+as
+Scaled Dot-Product }
+Attention y
+
+4</div></div><div style="margin: 10px 0;"><strong>Surrounding Context:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px;">Figure 2: (left) Scaled Dot-Product Attention. (right) Multi-Head Attention consists of several
+attention layers running in parallel.
+
+of the values, where the weight assigned to each value is computed by a compatibility function of the
+query with the corresponding key.
+
+3.2.1
+Scaled Dot-Product Att...</div></div><div style="margin: 10px 0;"><strong>Related Text Chunks (3):</strong>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 1 (p4_chunk0)</strong> [)V]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">Scaled Dot-Product Attention
+Multi-Head Attention
+Figure 2: (left) Scaled Dot-Product Attention. (right) Multi-Head Attention consists of several
+attention layers running in parallel. of the values, w...</div>
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 2 (p4_chunk1)</strong> [)V]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">We compute
+the matrix of outputs as:
+Attention(Q, K, V ) = softmax(QKT
+√dk
+)V
+(1)
+The two most commonly used attention functions are additive attention [2], and dot-product (multi-
+plicative) attentio...</div>
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                        <strong>Chunk 3 (p4_chunk2)</strong> [)V]<br>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">To counteract this effect, we scale the dot products by
+1
+√dk . 3.2.2
+Multi-Head Attention
+Instead of performing a single attention function with dmodel-dimensional keys, values and queries,
+we found ...</div>
+                    </div></div><div style="margin: 10px 0;"><strong>Combined Related Text:</strong><br><div class="ocr-text" style="background: white; margin-top: 5px; max-height: 200px; overflow-y: auto;">[)V]
+Scaled Dot-Product Attention
+Multi-Head Attention
+Figure 2: (left) Scaled Dot-Product Attention. (right) Multi-Head Attention consists of several
+attention layers running in parallel. of the values, where the weight assigned to each value is computed by a compatibility function of the
+query with the corresponding key. 3.2.1
+Scaled Dot-Product Attention
+We call our particular attention &quot;Scaled Dot-Product Attention&quot; (Figure 2). The input consists of
+queries and keys of dimension dk, and valu...</div></div><div style="margin: 10px 0;"><strong>Related Chunk IDs:</strong> p4_chunk0, p4_chunk1, p4_chunk2</div></div>
+        
+        <div class="image-container">
+            <div style="position: relative; display: inline-block;">
+                <img src="ocr_comparison_images\p4_img1.png" alt="Image p4_img1" 
+                     title="Image p4_img1 - Page 4 - 835×1282px">
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 8px; font-size: 0.9em;">
+                    <strong>Image p4_img1</strong> | Page 4 | 835×1282px | PNG
+                </div>
+            </div>
+            <div style="margin-top: 10px; text-align: center; color: #666; font-size: 0.9em;">
+                <div><strong>Image Properties:</strong> PNG | RGB | 43.51 KB</div>
+                <div style="margin-top: 5px;">
+                    Docling: 0 chars | Tesseract: 54 chars
+                </div>
+            </div>
+        </div>
+        
+        <div class="metadata">
+            <h3 style="margin-top: 0;">📈 OCR Statistics</h3>
+            <div class="metadata-grid">
+            <div class="metadata-item">
+                <div class="metadata-label">Docling OCR Length</div>
+                <div class="metadata-value">0 characters</div>
+            </div>
+            <div class="metadata-item">
+                <div class="metadata-label">Docling OCR Words</div>
+                <div class="metadata-value">0 words</div>
+            </div>
+            <div class="metadata-item">
+                <div class="metadata-label">Tesseract OCR Length</div>
+                <div class="metadata-value">54 characters</div>
+            </div>
+            <div class="metadata-item">
+                <div class="metadata-label">Tesseract OCR Words</div>
+                <div class="metadata-value">11 words</div>
+            </div></div>
+        </div>
+        
+        <div class="ocr-comparison">
+            <div class="ocr-box docling">
+                <h3>🔵 Docling OCR</h3>
+                <div class="ocr-text">
+                    (No text extracted)
+                </div>
+            </div>
+            
+            <div class="ocr-box tesseract">
+                <h3>🟢 Tesseract OCR</h3>
+                <div class="ocr-text">
+                    Linear
+
+YY
+Es 2
+as
+Scaled Dot-Product }
+Attention y
+
+4
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

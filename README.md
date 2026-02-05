@@ -84,11 +84,11 @@ The system uses OpenAI API for generating answers. You need an API key:
    set OPENAI_API_KEY=your-key-here        # Windows
    ```
 
-**Token Optimization:**
-- Uses `gpt-3.5-turbo` (cheaper than gpt-4)
-- Limits context to ~3000 tokens
-- Limits response to 500 tokens
-- Estimated cost: ~$0.002-0.005 per query
+**Model Configuration:**
+- Uses `gpt-4o-mini` (cost-effective with better performance than gpt-3.5-turbo)
+- No token limits by default (uses model defaults)
+- Can configure limits via environment variables: `MAX_CONTEXT_TOKENS` and `MAX_RESPONSE_TOKENS`
+- Retrieves more context (10 text chunks, 5 images) for comprehensive answers
 
 If API key is not set, the system will use a template-based fallback.
 
