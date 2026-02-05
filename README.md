@@ -24,10 +24,6 @@ PDF → Parser → Text Blocks + Images + Tables
         LLM Generator → Answer + Citations + Images
 ```
 
-## Installation
-
-**📖 For complete installation instructions, see [INSTALLATION.md](INSTALLATION.md)**
-
 ### Quick Install
 
 1. **Install Python packages:**
